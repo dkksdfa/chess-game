@@ -1,4 +1,5 @@
 # chess
+Vue로 만든 간단한 체스 게임입니다.
 
 ## Project setup
 ```
