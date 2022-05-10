@@ -1,15 +1,27 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <ChessBoard v-bind:boardList="board"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ChessBoard from './components/ChessBoard.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ChessBoard
+  },
+  data () {
+    return {
+      board: [
+        [4, 2, 3, 5, 6, 3, 2, 4],
+        [1, 1, 1, 1, 1, 1, 1, 1],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [1, 1, 1, 1, 1, 1, 1, 1],
+        [4, 2, 3, 5, 6, 3, 2, 4]
+      ]
+    }
   }
 }
 </script>
