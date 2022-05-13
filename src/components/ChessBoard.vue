@@ -25,13 +25,15 @@ export default {
     }
   },
   watch: {
-    select () {
+    select (data, oldData) {
+      switch (data) {
+        case 1:
+        case 7:
+          break
+      }
     }
   },
   methods: {
-    setBoard () {
-      this.board = this.boardList
-    },
     setSelect (value) {
       this.select = value
     },
