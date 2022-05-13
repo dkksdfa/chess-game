@@ -1,7 +1,9 @@
 <template>
-  <div class="piece">
-    <img :src="require(`../assets/${dataInt}.png`)"
-    draggable=true @dragstart="dragStart" @click="ab">
+  <div :class="propRed" v-if="propInt != 0">
+    <img :src="require(`../assets/${propInt}.png`)"
+    draggable=true @dragstart="emit()" @click="emit()">
+  </div>
+  <div :class="propRed" v-else>
   </div>
 </template>
 
@@ -9,15 +11,14 @@
 
 export default {
   name: 'ChessPiece',
+  emits: 'dataEmit',
   props: {
-    dataInt: Number
+    propInt: Number,
+    propRed: String
   },
   methods: {
-    ab () {
-      console.log('클릭')
-    },
-    dragStart () {
-      console.log('드래그')
+    emit () {
+      this.$emit('emitSelect', this.propInt)
     }
   }
 }
@@ -27,5 +28,8 @@ export default {
 img {
   width: 50px;
   cursor: move;
+}
+.red {
+  border: 1px solid red;
 }
 </style>

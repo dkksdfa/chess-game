@@ -1,8 +1,8 @@
 <template>
   <div class="board">
-    <div v-for="rank in boardList" :key="rank.id" class="rank">
-      <div v-for="file in rank" :key="file.id" class="file">
-        <ChessPiece :dataInt="file" v-if="file != 0"></ChessPiece>
+    <div v-for="(rank, i_index) in boardList" :key="rank.id" class="rank">
+      <div v-for="(file, j_index) in rank" :key="file.id" class="file">
+        <ChessPiece :propInt="file" @emitSelect="setSelect" :propRed="redCal(i_index, j_index)"></ChessPiece>
       </div>
     </div>
   </div>
@@ -20,7 +20,24 @@ export default {
   },
   data () {
     return {
-      board: this.boardList
+      board: this.boardList,
+      select: 0
+    }
+  },
+  watch: {
+    select () {
+    }
+  },
+  methods: {
+    setBoard () {
+      this.board = this.boardList
+    },
+    setSelect (value) {
+      this.select = value
+    },
+    redCal (i, j) {
+      if (this.board[i][j] > 0) return 'red'
+      return ''
     }
   }
 }
