@@ -10,6 +10,7 @@
 
 <script>
 import ChessPiece from './ChessPiece.vue'
+import {} from '../js/chess.js'
 export default {
   name: 'ChessBoard',
   components: {
